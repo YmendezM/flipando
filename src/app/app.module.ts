@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AuthService } from  './service/auth.service';
+import { TestService } from './service/test.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { AuthService } from  './service/auth.service';
     AdminLayoutComponent,
     AuthLayoutComponent
   ],
-  providers: [AuthService],
+  providers: [AuthService, TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
