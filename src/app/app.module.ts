@@ -12,6 +12,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFireDatabaseModule} from '@angular/fire/database'
+import { environment } from '../environments/environment';
 
 import { AuthService } from  './service/auth.service';
 import { TestService } from './service/test.service';
@@ -25,7 +32,15 @@ import { TestService } from './service/test.service';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
+
+
   ],
   declarations: [
     AppComponent,

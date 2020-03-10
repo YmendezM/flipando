@@ -7,9 +7,12 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  registro:any = {};
   constructor(private authService:AuthService) {
-    this.authService.register('email','password');
+   }
+
+   public register(){
+    this.authService.registerEmail(this.registro.email, this.registro.password);
    }
 
   ngOnInit() {
