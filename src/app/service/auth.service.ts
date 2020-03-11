@@ -8,13 +8,15 @@ import { ReturnStatement } from '@angular/compiler';
 })
 export class AuthService {
 
-  constructor(private angularFireAuth:AngularFireAuth) { }
+  constructor(private angularFireAuth:AngularFireAuth) {
+    this.getStatus();
+   }
   
   loginEmail(email, password){
      return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
      .then((response)=>{
        alert('User logueado');
-       console.log();
+       console.log(response);
      }).catch((error)=>{
        alert('Error al logear');
        console.log(error);
