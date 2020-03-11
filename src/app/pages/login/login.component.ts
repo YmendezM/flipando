@@ -7,9 +7,10 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  operation: string = 'login';
-  email: string = null;
-  password: string = null;
+  loguear:any = {};
+  //operation: string = 'login';
+  //email: string = null;
+  //password: string = null;
   constructor(private authService:AuthService) {
     //this.authService.login('email','password');
   }
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(){
+    this.authService.loginEmail(this.loguear.email, this.loguear.password);
     
   }
   ngOnDestroy() {

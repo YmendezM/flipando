@@ -11,7 +11,14 @@ export class AuthService {
   constructor(private angularFireAuth:AngularFireAuth) { }
   
   loginEmail(email, password){
-     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+     .then((response)=>{
+       alert('User logueado');
+       console.log();
+     }).catch((error)=>{
+       alert('Error al logear');
+       console.log(error);
+     });
   }
 
   registerEmail(email, password){
