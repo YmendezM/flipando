@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -34,6 +35,10 @@ import { TestService } from './service/test.service';
     RouterModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCDyhc9XjRIcJ8OwfLsv85g68VAhZFCFFk"
+    }),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
