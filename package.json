@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "@angular/animations": "9.0.5",
     "@angular/common": "9.0.5",
     "@angular/compiler": "9.0.5",
@@ -29,6 +30,7 @@
     "clipboard": "2.0.4",
     "core-js": "3.6.4",
     "firebase": "^7.10.0",
+    "i": "^0.3.6",
     "ngx-clipboard": "13.0.0",
     "ngx-toastr": "12.0.0",
     "nouislider": "13.1.1",
