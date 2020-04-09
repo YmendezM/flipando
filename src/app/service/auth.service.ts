@@ -2,25 +2,28 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { stringify } from 'querystring';
 import { ReturnStatement } from '@angular/compiler';
+import { Router } from '@angular/router';
  
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private angularFireAuth:AngularFireAuth) {
+  constructor(private angularFireAuth:AngularFireAuth, private router:Router) {
     this.getStatus();
    }
   
   loginEmail(email, password){
      return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
      .then((response)=>{
-       alert('User logueado');
-       console.log(response);
-     }).catch((error)=>{
-       alert('Error al logear');
-       console.log(error);
-     });
+      alert('User logueado');
+      console.log(response);
+      this.router.navigate(['dashboard']);
+    }).catch((error)=>{
+      alert('Error al logear');
+      console.log(error);
+      this.router.navigate(['login']);
+    });
   }
 
   registerEmail(email, password){
@@ -28,10 +31,12 @@ export class AuthService {
     .then((response)=>{
       alert('Usuario registrado');
       console.log(response);
+      this.router.navigate(['login']);
     }).catch((error)=>{
       alert('User no se pudo registrar');
       console.log(error);
-    });    
+      this.router.navigate(['register']);
+    });     
   }
 
   getStatus(){
@@ -39,8 +44,15 @@ export class AuthService {
   }
 
   logOut(){
-    return this.angularFireAuth.auth.signOut();
+    this.angularFireAuth.auth.signOut();
+    alert('Session Terminada');
+    this.router.navigate(['login']);
   }
+
+  getUser(){
+    return this.angularFireAuth.auth;
+  }
+
     
  /* public login(email, password){
     console.log("Ysrael Mendez");

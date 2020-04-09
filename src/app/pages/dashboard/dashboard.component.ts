@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { AuthService } from 'src/app/service/auth.service';
+
 
 // core components
 import {
@@ -8,6 +10,7 @@ import {
   chartExample1,
   chartExample2
 } from "../../variables/charts";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +25,24 @@ export class DashboardComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
-  constructor() { }
+  loggenIn = false;
+  loggedUser:any = null;
+
+  constructor(private authService: AuthService) { 
+    this.authService.getStatus()
+    .subscribe((result)=>{
+      if(result && result.uid){
+        this.loggenIn = true;
+        setTimeout(()=>{
+          this.loggedUser = this.authService.getUser().currentUser.email;
+        }, 500);
+      } else {
+        this.loggenIn = false;
+      }
+    }, (error)=>{
+      this.loggenIn = false;
+    });
+  }
 
   ngOnInit() {
 
