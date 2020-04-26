@@ -18,7 +18,7 @@ export class AuthService {
      .then((response)=>{
       alert('User logueado');
       console.log(response);
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['user-profile']);
     }).catch((error)=>{
       alert('Error al logear');
       console.log(error);

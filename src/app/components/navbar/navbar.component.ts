@@ -13,8 +13,23 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+  loggedUser:any = null;
+  loggenIn = false;
   constructor(location: Location,  private element: ElementRef, private router: Router, private authService: AuthService) {
     this.location = location;
+    this.authService.getStatus()
+    .subscribe((result)=>{
+      if(result && result.uid){
+        this.loggenIn = true;
+        setTimeout(()=>{
+          this.loggedUser = this.authService.getUser().currentUser.email;
+        }, 500);
+      } else {
+        this.loggenIn = false;
+      }
+    }, (error)=>{
+      this.loggenIn = false;
+    });
   }
   
 
