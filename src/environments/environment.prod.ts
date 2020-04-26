@@ -1,13 +1,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyB-e_jMcYQD-GNo9ltKi9p41FQC0dW6tnU",
-    authDomain: "auth-65c46.firebaseapp.com",
-    databaseURL: "https://auth-65c46.firebaseio.com",
-    projectId: "auth-65c46",
-    storageBucket: "auth-65c46.appspot.com",
-    messagingSenderId: "71655619080",
-    appId: "1:71655619080:web:ab5df2351c5b8e63d3efbd",
-    measurementId: "G-NHZ9EYBLP0"
+    apiKey: "AIzaSyCDyhc9XjRIcJ8OwfLsv85g68VAhZFCFFk",
+    authDomain: "flipando.firebaseapp.com",
+    databaseURL: "https://flipando.firebaseio.com",
+    projectId: "flipando",
+    storageBucket: "flipando.appspot.com",
+    messagingSenderId: "174973743882",
+    appId: "1:174973743882:web:cf9b31a41524409ef800f3",
+    measurementId: "G-GFFC3X2SCB"
   }
 };
