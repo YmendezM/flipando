@@ -17,10 +17,16 @@
     <!-- User -->
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item" *ngIf="!loggenIn">
-        <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/login']">
-          <i class="ni ni-key-25"></i>
-          <span class="nav-link-inner--text">Login</span>
-        </a>
+          <div class="col text-right">
+            <a [routerLink]="['/login']" class="btn btn-sm btn btn-primary">
+              <i class="ni ni-key-25"></i>
+                <span class="nav-link-inner--text">Iniciar sesión</span>
+            </a>
+            <a [routerLink]="['/register']" class="btn btn-sm btn-secondary">
+              <i class="ni ni-circle-08"></i>
+                <span class="nav-link-inner--text">Regístrate</span>
+            </a>
+          </div>
       </li>
       <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="loggenIn">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
