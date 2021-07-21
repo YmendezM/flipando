@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
 import { AuthService } from 'src/app/service/auth.service';
-
+import { JugadorService } from 'src/app/service/jugador.service';
 
 // core components
 import {
@@ -21,14 +21,13 @@ export class DashboardComponent implements OnInit {
 
   public datasets: any;
   public data: any;
-  public salesChart;
-  public clicked: boolean = true;
+  public salesChart; 
   public clicked1: boolean = false;
 
   loggenIn = false;
   loggedUser:any = null;
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService, private jugadorService: JugadorService) { 
     this.authService.getStatus()
     .subscribe((result)=>{
       if(result && result.uid){
@@ -72,10 +71,6 @@ export class DashboardComponent implements OnInit {
 			data: chartExample1.data
 		});
   }
-
-
-
-
 
   public updateOptions() {
     this.salesChart.data.datasets[0].data = this.data;
