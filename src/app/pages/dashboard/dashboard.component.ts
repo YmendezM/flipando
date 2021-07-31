@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
   loggenIn = false;
   loggedUser:any = null;
+  Jugadores = [];
 
   constructor(private authService: AuthService, private jugadorService: JugadorService) { 
     this.authService.getStatus()
@@ -43,9 +44,19 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  getAllJugador(){
+    this.jugadorService.getAllJugador()
+    .subscribe(Jugador =>{
+      this.Jugadores = Jugador;
+      console.log(Jugador);
+    });
+  }
+
+
+
   ngOnInit() {
 
-    this.datasets = [
+    /*this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
       [0, 20, 5, 25, 10, 30, 15, 40, 40]
     ];
@@ -69,7 +80,7 @@ export class DashboardComponent implements OnInit {
 			type: 'line',
 			options: chartExample1.options,
 			data: chartExample1.data
-		});
+		});*/
   }
 
   public updateOptions() {
